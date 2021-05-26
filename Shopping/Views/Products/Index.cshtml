@@ -1,0 +1,13 @@
+﻿@{
+    List<ProductModel> products = (List<ProductModel>) @ViewData["Products"];
+}
+
+
+<ul>
+    @{
+        foreach (var product in products)
+        {
+            <li>Id: @product.Id , Name: @product.Name , Price: @product.Price</li>
+        }
+    }
+</ul>

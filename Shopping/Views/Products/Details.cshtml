@@ -1,0 +1,9 @@
+﻿@{
+    ProductModel Product = (ProductModel) @ViewData["Product"];
+    int id = (int) Product.Id; 
+}
+
+
+<ul>
+    <li>Id: @id , Name: @Product.Name</li>
+</ul>
