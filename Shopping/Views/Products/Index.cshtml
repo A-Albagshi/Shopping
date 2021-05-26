@@ -1,13 +1,30 @@
 ﻿@{
     List<ProductModel> products = (List<ProductModel>) @ViewData["Products"];
+    string Color = (string)ViewData["color"];
+    /*Layout = "_LayoutWeb";*/
 }
 
-
-<ul>
+<table class="table table-striped">
+    <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Image</th>
+    <th>Go To</th>
+    </tr>
+    
+    <tbody>
     @{
         foreach (var product in products)
         {
-            <li>Id: @product.Id , Name: @product.Name , Price: @product.Price</li>
+            <tr class=" text-center" style="background-color:@Color" >
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td><img src=@product.Image width="100" height="100"/></td>
+                <td><input type="button" class="btn btn-primary" onclick="location.href='/products/details/@product.Id';" value=@product.Name /></td>
+            </tr>
         }
     }
-</ul>
+</tbody>
+</table>
