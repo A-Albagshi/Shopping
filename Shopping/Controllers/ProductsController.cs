@@ -32,6 +32,9 @@ namespace Shopping.Controllers
         }
         public IActionResult Random()
         {
+            Random rand = new Random();
+            ProductModel p = products[rand.Next(0, products.Count)];
+            @ViewData["Product"] = p;
             return View();
         }
     }
